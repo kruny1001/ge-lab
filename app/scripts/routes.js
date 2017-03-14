@@ -375,6 +375,10 @@ angular.module('statsdsuApp')
         templateUrl: 'views/boards.html',
         controller: 'BoardsCtrl'
       })
+      .when('/commit', {
+        templateUrl: 'views/commit.html',
+        controller: 'CommitCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 

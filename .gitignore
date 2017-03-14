@@ -6,6 +6,8 @@
 /sh/
 /testExamples/
 /node_modules/
+/functions/node_modules/
+/backend/
 /.sass-cache/
 /.tmp/
 /bower_components/
