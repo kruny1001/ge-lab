@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+/surveyResult/
+/javascript_motion_detection_soundstep/
+/motion/
+/test/
+/sh/
+/testExamples/
+/node_modules/
+/.sass-cache/
+/.tmp/
+/bower_components/

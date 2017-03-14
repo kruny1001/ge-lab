@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.sass-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/bower_components" />
+      <excludeFolder url="file://$MODULE_DIR$/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/docker" />
+      <excludeFolder url="file://$MODULE_DIR$/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/javascript_motion_detection_soundstep" />
+      <excludeFolder url="file://$MODULE_DIR$/motion" />
+      <excludeFolder url="file://$MODULE_DIR$/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/sh" />
+      <excludeFolder url="file://$MODULE_DIR$/surveyResult" />
+      <excludeFolder url="file://$MODULE_DIR$/test" />
+      <excludeFolder url="file://$MODULE_DIR$/testExamples" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

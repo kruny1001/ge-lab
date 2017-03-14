@@ -1,0 +1,120 @@
+<style>
+    ._md-subheader-inner{ padding:4px !important;}
+</style>
+<div layout="column" style="overflow: inherit; position:relative; background-color: white;" flex >
+    <div class="profile-container" style="border-bottom: 2px solid black;">
+        <profile-header></profile-header>
+    </div>
+    <div class='menu-box' layout="column" layout-align="start start" style="max-width:100%; margin-top: 8px; height:100%; color:black;">
+        <div layout class='menu-box'> <span class="md-title"><strong> Data: {{title}} </strong></span>
+            <div ng-show-auth>
+                <span> <a href="#/newDetailData">add</a></span> /
+                <span> <a href="#/editDetailData">edit</a></span>
+            </div>
+        </div>
+        <div class="menu-box md-title" style="color:red">
+            Manually collected gene sets:
+        </div>
+    </div>
+    <div class='menu-box' style="max-width: 100%; padding:0px;">
+        <section class='menu-box'  layout layout-xs="column" flex>
+            <div flex ng-repeat="group in chunk">
+                <ul style="padding:0 10px; list-style-type: none;" ng-repeat="item in group" >
+                    <div class="md-no-sticky md-body" style="text-decoration: underline;"><strong>{{item.mainTitle}}</strong></div>
+                    <li style="padding: 0 10px;">
+                        <ol style="padding:0 10px; list-style-type: none;" ng-repeat="st in item.subTopic">
+                            <div class="md-no-sticky" style="font-size:12px;"><strong>{{st.title}}</strong></div>
+                            <li style="padding:0 10px;" ng-repeat="lk in st.link">
+                                <div class="md-caption" style="" ng-click="openWeb(lk.addr)" class="noright">
+                                    <md-icon md-svg-src="dImages/ionicIcons/paperclip.svg" aria-label="Send Email" class="md-secondary md-hue-3"></md-icon>
+                                    {{lk.name}}
+                                </div>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+                <!--
+                <md-list style="border: 1px solid black; margin:2px; padding:0px;" ng-repeat="item in group" flex>
+                    <md-subheader class="md-no-sticky md-title" style="background-color: #ffe9cb; padding: 3px; border-bottom: 1px solid black; color:black; text-decoration: underline;">{{item.mainTitle}}</md-subheader>
+                    <div ng-repeat="st in item.subTopic"  style="">
+                        <md-list style="padding:0px;" flex>
+                            <md-subheader class="md-no-sticky" style="font-size:12px;">{{st.title}}</md-subheader>
+                            <md-list-item class="md-caption" style="height:35px; min-height: 35px;" ng-repeat="lk in st.link" ng-click="openWeb(lk.addr)" class="noright">{{lk.name}}</md-list-item>
+                        </md-list>
+                    </div>
+                </md-list>
+                -->
+            </div>
+        </section>
+        <hr/>
+        <div class='menu-box' layout="column" layout-align="start start" style="max-width:100%; margin-top: 8px; height:100%; color:black;">
+            <!--<div class='menu-box'> <span class="md-title"><strong> Data: {{title}} </strong></span>-->
+                <!--<span>add</span> / <span>edit</span> -->
+            <!--</div>-->
+            <div class="menu-box md-title" style="color:red">
+                Programmatically downloaded gene sets
+            </div>
+
+            <p class='menu-box'> Gene Ontology information was downloaded and parsed from Ensembl Biomart using R scripts.
+                KEGG metabolic pathways were downloaded using KEGG API.  Gene IDs were converted based on Biomart.
+                Information on  .GMT file format
+                Once unziped, GMT files can be used directly by programs like Gene Set Enrichment Analysis (GSEA).
+                They can also be read by many bioconductor functions such as getGMT in GSEAbase.
+                Downloaded 11/9/2016.   Contact us to request additional ID types or species. </p>
+        </div>
+        <section class='menu-box' layout="column" flex>
+                <div class="md-title"> Animals </div>
+                <ul>
+                    <li style="padding:0 10px; list-style-type: none;" ng-repeat="data in chunkAnimal">
+                        <div class="md-caption" style="" ng-click="openWeb(baseURL + data.geneSetFile)" class="noright">
+                            <md-icon md-svg-src="dImages/ionicIcons/paperclip.svg" aria-label="Send Email" class="md-secondary md-hue-3"></md-icon>
+                            <strong>{{data.name}}</strong>  <span ng-if="data.commonName !== ''"> - ({{data.commonName}}) </span>
+                        </div>
+                    </li>
+                </ul>
+
+                <hr/>
+
+                <div class="md-title"> Plants </div>
+                <ul>
+                    <li style="padding:0 10px; list-style-type: none;" ng-repeat="data in chunkPlant">
+                        <div class="md-caption" style="" ng-click="openWeb(baseURL + data.geneSetFile)" class="noright">
+                            <md-icon md-svg-src="dImages/ionicIcons/paperclip.svg" aria-label="Send Email" class="md-secondary md-hue-3"></md-icon>
+                            <strong>{{data.name}}</strong> <span ng-if="data.commonName !== '' "> - ({{data.commonName}}) </span>
+                        </div>
+                    </li>
+                </ul>
+
+        </section>
+
+        <section class="menu-box" style="width:100%; padding:8px; margin-bottom:12px;">
+        <div>
+            <div class="md-title">Hints on how to run gene set enrichment analysis (GSEA):</div>
+            <ol>
+                <li>Download GSEA program from Broad institute.</li>
+                <li>Download gene sets from links above.</li>
+                <li>Load your expression data into GSEA. You can follow the GSEA documentation on various ways to do so. For a simple experiment, like the 24hr cold-treated plants vs. control in GSE5534, I have found it is best to convert the data to a RNK (Ranked list) file. Based on statistical analysis such as a T-test, I eliminate genes that are not significantly different between experiment and control. I often use less selective cutoffs for P values or Q value in filtering, so that I have a few hundred to a few thousand genes. The genes are then ranked by fold change and the file saved in a text file with .rnk as extension in file name. This is the file that I used in the paper. Note that runing GSEA using RNK files needs to be initiated from GSEA main menu Tools GseaPreranked.</li>
+                <li>Another essential file is a .chip file that maps probe IDs to gene symbols. This information needs to be downloaded from microarray manufacture. This file is for Affymetrix ATH1 chip.</li>
+            </ol>
+        </div>
+        <div>
+            <div class="md-title">Update log:</div>
+            <ol>
+                <li>(8/20/2012): Updated literature gene sets to include additional gene sets from ArrayExpress.</li>
+                <li>(8/27/2012): Corrected duplicate entry in literature gene sets LIT_SAKUMA_FLUORESCENCE-1H-DROUGHT-STRESS/CONTROL_DN. This causes GSEA to have errors. The two gene sets are renamed. Literature gene sets and all gene sets and Excel file updated.</li>
+                <li>(8/19/2013): Updated the database AraPath (Database in Arabidopsis). There are a total of 4,774 updated gene sets, including 1,426 literature gene sets from GEO and ArrayExpress and 3,348 Gene Ontology gene sets.</li>
+                <li>(9/8/2013): Added the new database GSKB (Gene Set Knowledgebase in Mouse), which includes a total of 42,056 gene sets of Mouse.</li>
+                <li>(9/11/2013): Added the new database in Yeast, which includes a total of 8,457 gene sets of Yeast.    </li>
+                <li>(9/12/2013): Added the new database (only Gene Ontology gene sets) of 30 species including Bos taurus (cow), Caenorhabditis elegans (nematode), Canis familiaris (dog), Danio rerio (zebrafish), Drosophila melanogaster (fruit-fly), Equus ferus caballus (horse), Felis catus (cat), Gallus gallus (chicken), Homo sapiens (human), Oryctolagus cuniculus (rabbit), Pan troglodytes (chimpanzee), Rattus norvegicus (brown-rat), Sus scrofa (pig), Xenopus tropicalis (frog), Dictyostelium discoideum (slime mold), Leishmania major (aleppo-boil), Plasmodium falciparum (malarial parasite), Escherichia coli k12 (intestinal bacteria), Brachypodium distachyon (purple false brome), Glycine max (soybean), Hordeum vulgare (barley), Oryza sativa (Asian rice), Oryza sativa indica (Indica group rice), Physcomitrella patens (moss), Populus trichocarpa (black cottonwood), Solanum lycopersicum (tomoto), Solanum tuberosum (potato), Sorghum bicolor (sorghum grass), Vitis vinifera (grape vine), and Zea mays (corn).</li>
+            </ol>
+
+        </div>
+        <div>Please feel free to email us at Xijin.Ge@sdstate.edu for questions.</div>
+        </section>
+    </div>
+    <div class="profile-container" style="height: 100%; border-top: 2px solid black;">
+        <div class="main-container">
+            <footer-stat></footer-stat>
+        </div>
+    </div>
+</div>

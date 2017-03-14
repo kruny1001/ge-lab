@@ -1,0 +1,18 @@
+<style>
+    .pub-author{  margin-left: 3px;  margin-right: 3px;  }
+    .pub-author-first{  margin-right: 3px;  }
+</style>
+<section layout="row" layout-xs="column" layout-padding>
+    <div flex="10" flex-xs="100">{{pubIndex}}</div>
+    <div flex="90" flex-xs="100">
+        <span ng-class="{'pub-author-first':$first, 'pub-author':!$first, }" ng-repeat="auth in pub.authors">{{auth}}<span if-show="!$first && !$last">,</span>
+        </span>
+        <span> {{pub.title}}</span>
+        <span style="font-weight:bold;"> {{pub.org}} </span>
+        <span> {{pub.section}} </span>
+        <span style="font-weight:bold;"> {{pub.year}} </span>
+        <span ng-repeat="link in pub.links"> <a ng-href="{{link.addr}}" style="font-weight:bold;" target="_blank">{{link.name}}</a>
+          <!-- <span if-show="!$first && !$last">,</span>  -->
+        </span>
+    </div>
+</section>

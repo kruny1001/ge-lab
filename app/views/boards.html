@@ -1,0 +1,33 @@
+<md-content layout="column" style="overflow: inherit;  background-color: white;">
+    <div class="profile-container" style="border-bottom: 2px solid black;">
+        <profile-header></profile-header>
+    </div>
+
+    <div class='menu-box' layout="column" style="width:100%; margin-top: 8px; color:black;">
+        <div ng-class="{'md-title':xsScreen, 'md-display-1':!xsScreen, }"
+             style="font-weight: bold; padding-top: 0px;">
+            Boards <span class="md-caption"></span></div>
+        <section layout="column" layout-padding style="width:100%; margin-bottm:15px;">
+            <section layout="column" class="detailContainer" layout-margin style="">
+                <div layout="column" layout-gt-xs="row" style="margin:0px;">
+                    <!-- Update board -->
+                    <article-list class="info" icon="quote.svg" flex-xs="100" flex="50" type="baseNews" name-list="News" limit="6"></article-list>
+                    <article-list flex-xs="100" icon="speakerphone.svg" flex="50" type="info" name-list="Information" limit="6"></article-list>
+                </div>
+                <div layout="column" layout-gt-xs="row" style="margin:0px;"></div>
+                <div layout="column" layout-gt-xs="row" style="margin:0px;">
+                    <!-- Update board -->
+                    <article-list icon="code-working.svg" flex-xs="100" flex="50" type="dev" name-list="Development" limit="6"></article-list>
+                    <!--<article-list flex-xs="100" flex="50" type="early" name-list="얼리어덥터" limit="6"></article-list>-->
+                </div>
+            </section>
+        </section>
+    </div>
+
+
+</md-content>
+<div class="profile-container" style="border-top: 2px solid black;">
+    <div class="main-container">
+        <footer-stat></footer-stat>
+    </div>
+</div>

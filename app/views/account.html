@@ -1,0 +1,66 @@
+<md-content layout="column" style="overflow: hidden; position:relative; background-color: white;" flex layout-fill>
+  <div class="profile-container" style="border-bottom: 2px solid black;"><profile-header></profile-header></div>
+  <div class='menu-box' layout style="margin-top: 8px; color:black;">
+    <div flex-xs="100" flex-gt-sm="60">
+      <div layout="column" layout-align="start start"><div class="md-title">Account Info</div></div>
+    </div>
+    <div>
+      <md-button ng-click="logout()"> Logout </md-button>
+      <md-button> Delete </md-button>
+      <md-button> Setting </md-button>
+    </div>
+  </div>
+  <hr/>
+  <md-content class='menu-box' flex style="background:transparent;">
+
+    <div class="md-title"> Basic Information </div>
+    <section layout="column" layout-gt-xs="row" layout-align="start start" layout-margin style="border:1px solid black; max-width:941px;">
+      <section flex="50" flex-xs="100">
+        <div class="md-title" style="margin-bottom:8px;">Profile</div>
+        <div layout>
+          <img style="border-radius:50%; border:1px solid black" ng-src="{{user.photoURL}}">
+          <div>
+            <ul>
+              <li>{{user.displayName}}</li>
+              <li>{{user.providerData[0].email}}</li></li>
+              <li>{{user.providerData[0].providerId}}</li></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section flex="50" flex-xs="100">
+        <div class="md-title" style="margin-bottom:8px;">Messages</div>
+        <div layout></div>
+      </section>
+    </section>
+
+    <hr/>
+    <div class="md-title"> Page Editor </div>
+    <section layout="column" layout-gt-xs="row" layout-align="start start" layout-margin style="border:1px solid black; max-width:941px;">
+      <section flex="50" flex-xs="100">
+        <div class="md-title" style="margin-bottom:8px;">People</div>
+        <div layout></div>
+      </section>
+      <section flex="50" flex-xs="100">
+        <div class="md-title" style="margin-bottom:8px;">Publications</div>
+        <div layout></div>
+      </section>
+    </section>
+
+    <section layout="column" layout-gt-xs="row" layout-align="start start" layout-margin style="border:1px solid black; max-width:941px;">
+      <section flex="50" flex-xs="100">
+        <div class="md-title" style="margin-bottom:8px;">Software & Data</div>
+        <div layout></div>
+      </section>
+      <section flex="50" flex-xs="100">
+        <div class="md-title" style="margin-bottom:8px;">Education</div>
+        <div layout></div>
+      </section>
+    </section>
+    <div class="profile-container" style="border-top: 2px solid black;">
+      <div class="main-container">
+        <footer-stat></footer-stat>
+      </div>
+    </div>
+  </md-content>
+</md-content>

@@ -1,0 +1,62 @@
+<md-content layout="column" style="overflow: inherit;  background-color: white;">
+    <div class="profile-container" style="border-bottom: 2px solid black;">
+        <profile-header></profile-header>
+    </div>
+    <div class='menu-box' layout style="margin-top: 8px; color:black;">
+        <div flex-xs="100" flex-gt-sm="60">
+            <br><br>
+            <div layout="column" layout-align="start start">
+                <div ng-class="{'md-title':xsScreen, 'md-display-1':!xsScreen, }" style="font-weight: bold; padding-top: 0px;">Bioinformatics Research Group</div>
+                <br>
+                <br hide-xs>
+                <br hide-xs>
+                <br hide-xs>
+                <div style="max-width: 600px;">
+                    <p>
+                      <a href="http://www.sdstate.edu/directory/xijin-ge">Dr. Xijin Ge</a> is an associate professor of bioinformatics at <a href="https://www.sdstate.edu/mathematics-statistics">Department of Mathematics and Statistics, South Dakota State University</a>. He teaches and conducts research in the general area of bioinformatics and computational biology. More about Dr. Ge’s training and research can be found at <a href="https://scholar.google.com/citations?user=DFUSeDUAAAAJ&hl=en">Google Scholar</a> and <a href="http://orcid.org/0000-0001-7406-3782">ORCiD</a>.
+                      <br><br>
+                      Currently, the main focus of his group is the role of transposable elements in the gene regulation, especially in embryonic stem cells. Another emphasis is the development of tools and resources for the interpretation of high-throughput genomics data. Dr. Ge also enjoys working with many collaborators in a supporting role.
+                      <br><br>
+                      We are also involved in teaching statistics and analytics to high school students as part of the education and outreach activities of <a href="http://sdepscor.org/">SD EPSCoR</a>. His research group is supported by <a href="http://www.nsf.gov/">National Science Foundation (NSF)</a>, <a href="http://www.nih.gov/
+                      ">National Institutes of Health (NIH)</a>, the state of South Dakota, Sanford Health etc.
+                      <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div hide-xs flex-xs="0" flex-gt-sm="40" layout-padding>
+            <canvas width="370" height="500"></canvas>
+        </div>
+    </div>
+    <hr/>
+    <div class='menu-box' layout="column" style="position:relative; margin-top: 8px; color:black;">
+        <div ng-class="{'md-title':xsScreen, 'md-display-1':!xsScreen, }" style="font-weight: bold; padding-top: 0px;">
+            What's new! <span class="md-caption"><a href="#/timelines">more</a></span></div>
+        <div class="timeline-container">
+            <ul class="timeline">
+                <li ng-class-even="'timeline-inverted'" ng-repeat="tl in timelines">
+                    <div class="timeline-badge">
+                        <a><i class="fa fa-circle" ></i></a>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>{{tl.title}}</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>{{tl.desc}}</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <p class="text-right">{{tl.date}}</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix no-float"></li>
+            </ul>
+        </div>
+    </div>
+</md-content>
+<div class="profile-container" style="border-top: 2px solid black;">
+    <div class="main-container">
+        <footer-stat></footer-stat>
+    </div>
+</div>

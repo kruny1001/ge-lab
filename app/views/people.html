@@ -1,0 +1,111 @@
+<div layout="column" style="overflow: inherit; position:relative; background-color: white;" flex >
+    <div class="profile-container" style="border-bottom: 2px solid black;">
+        <profile-header></profile-header>
+    </div>
+    <div class='menu-box' layout="column" style="margin-top: 8px; height:100%; color:black;">
+        <div class="page-title"> <span class="md-title"><strong>People</strong></span></div>
+        <div layout layout-margin>
+            <section flex-gt-xs="60" flex="100">
+                <div>
+                    <img style="    border-radius: 15px; width:100%" src="https://res.cloudinary.com/dbfirebase/image/upload/w_934/nu2umqjnnxeadn2cvtfe.jpg">
+                    <p>  </p>
+                </div>
+                <md-list flex hide-xs>
+                    <md-subheader class="md-no-sticky">Graduates ({{graduates.length}})</md-subheader>
+                    <md-list-item ng-repeat="who in graduates" ng-click="goToPerson(person.name, $event)" class="noright">
+                        <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                        <p>{{ who.name }}</p>
+                    </md-list-item>
+                    <md-subheader class="md-no-sticky">Former Research Associates ({{FRA.length}})</md-subheader>
+                    <md-list-item ng-repeat="who in FRA" ng-click="goToPerson(person.name, $event)" class="noright">
+                        <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                        <p>{{ who.name }}</p>
+                    </md-list-item>
+                </md-list>
+            </section>
+            <section flex="40" hide-xs>
+                <md-list flex>
+                    <md-subheader class="md-no-sticky">Professor ({{prof.length}})</md-subheader>
+                    <md-list-item ng-repeat="who in prof" ng-click="goToPerson(person.name, $event)" class="noright">
+                        <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                        <p>{{ who.name }}</p>
+                        <md-icon md-svg-src="dImages/ionicIcons/email.svg"  ng-click="sendEmail($event, who.email)" aria-label="Send Email" class="md-secondary md-hue-3" ></md-icon>
+                    </md-list-item>
+
+                    <md-subheader class="md-no-sticky">PhD Students ({{phd.length}})</md-subheader>
+                    <md-list-item ng-repeat="who in phd" ng-click="goToPerson(person.name, $event)" class="noright">
+                        <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                        <p>{{ who.name }}</p>
+                        <md-icon md-svg-src="dImages/ionicIcons/email.svg"  ng-click="sendEmail($event, who.email)" aria-label="Send Email" class="md-secondary md-hue-3" ></md-icon>
+                    </md-list-item>
+
+                    <md-subheader class="md-no-sticky">Master's Students ({{ms.length}})</md-subheader>
+                    <md-list-item ng-repeat="who in ms" ng-click="goToPerson(person.name, $event)" class="noright">
+                        <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                        <p>{{ who.name }}</p>
+                        <md-icon md-svg-src="dImages/ionicIcons/email.svg"  ng-click="sendEmail($event, who.email)" aria-label="Send Email" class="md-secondary md-hue-3" ></md-icon>
+                    </md-list-item>
+
+                    <md-subheader class="md-no-sticky">Visiting Students ({{visits.length}})</md-subheader>
+                    <md-list-item ng-repeat="who in visits" ng-click="goToPerson(person.name, $event)" class="noright">
+                        <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                        <p>{{ who.name }}</p>
+                        <md-icon md-svg-src="dImages/ionicIcons/email.svg"  ng-click="sendEmail($event, who.email)" aria-label="Send Email" class="md-secondary md-hue-3" ></md-icon>
+                    </md-list-item>
+                </md-list>
+            </section>
+        </div>
+
+        <section show-xs hide-gt-xs layout layout-margin layout-xs="column" flex style="width:100%;">
+            <md-list flex>
+                <md-subheader class="md-no-sticky">Professor ({{prof.length}})</md-subheader>
+                <md-list-item ng-repeat="who in prof" ng-click="goToPerson(person.name, $event)" class="noright">
+                    <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                    <p>{{ who.name }}</p>
+                    <md-icon md-svg-src="dImages/ionicIcons/email.svg"  ng-click="sendEmail($event, who.email)" aria-label="Send Email" class="md-secondary md-hue-3" ></md-icon>
+                </md-list-item>
+
+                <md-subheader class="md-no-sticky">PhD Students ({{phd.length}})</md-subheader>
+                <md-list-item ng-repeat="who in phd" ng-click="goToPerson(person.name, $event)" class="noright">
+                    <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                    <p>{{ who.name }}</p>
+                    <md-icon md-svg-src="dImages/ionicIcons/email.svg"  ng-click="sendEmail($event, who.email)" aria-label="Send Email" class="md-secondary md-hue-3" ></md-icon>
+                </md-list-item>
+
+                <md-subheader class="md-no-sticky">Master's Students ({{ms.length}})</md-subheader>
+                <md-list-item ng-repeat="who in ms" ng-click="goToPerson(person.name, $event)" class="noright">
+                    <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                    <p>{{ who.name }}</p>
+                    <md-icon md-svg-src="dImages/ionicIcons/email.svg"  ng-click="sendEmail($event, who.email)" aria-label="Send Email" class="md-secondary md-hue-3" ></md-icon>
+                </md-list-item>
+
+                <md-subheader class="md-no-sticky">Visiting Students ({{visits.length}})</md-subheader>
+                <md-list-item ng-repeat="who in visits" ng-click="goToPerson(person.name, $event)" class="noright">
+                    <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                    <p>{{ who.name }}</p>
+                    <md-icon md-svg-src="dImages/ionicIcons/email.svg"  ng-click="sendEmail($event, who.email)" aria-label="Send Email" class="md-secondary md-hue-3" ></md-icon>
+                </md-list-item>
+            </md-list>
+            <md-list flex>
+                <md-subheader class="md-no-sticky">Graduates ({{graduates.length}})</md-subheader>
+                <md-list-item ng-repeat="who in graduates" ng-click="goToPerson(person.name, $event)" class="noright">
+                    <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                    <p>{{ who.name }}</p>
+                </md-list-item>
+                <md-subheader class="md-no-sticky">Former Research Associates ({{FRA.length}})</md-subheader>
+                <md-list-item ng-repeat="who in FRA" ng-click="goToPerson(person.name, $event)" class="noright">
+                    <img alt="{{ who.name }}" ng-src="{{ who.img?who.img:'dImages/profile/nprofile.png'}}" class="md-avatar" />
+                    <p>{{ who.name }}</p>
+                </md-list-item>
+            </md-list>
+        </section>
+
+
+
+    </div>
+    <div class="profile-container" style="height: 100%; border-top: 2px solid black;">
+        <div class="main-container">
+            <footer-stat></footer-stat>
+        </div>
+    </div>
+</div>

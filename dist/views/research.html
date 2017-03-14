@@ -1,0 +1,44 @@
+<div layout="column" style="position:relative; background-color: white" flex> <div class="profile-container" style="border-bottom: 2px solid black"> <profile-header></profile-header> </div> <div class="menu-box" layout="column" style="margin-top: 8px; height:100%; color:black"> <div class="page-title"> <span class="md-title"><strong>Research</strong></span> </div> <div class="material-list-cnt" layout="row" style="height:100%"> <div flex style="background-color: #E0E0E0; height: inherit"> <!-- Chapter Information --> <div ng-show="targetMat === null" style="width: 100%;height: inherit"> <br> <md-content layout="column" layout="center center" style="background-color:white; width: 100%; max-width:942px; margin:0 auto; padding:20px"> <div ng-bind-html="chapterInfo.chapterContent"></div> </md-content> </div> <div ng-show="targetMat !== null" style="width: 100%; background:white;
+                 height: inherit" class="material-list-cnt"> <!-- <md-toolbar md-scroll-shrink style="background-color:#1E88E5">
+                        <div  class="md-toolbar-tools">
+                            <md-button class="md-icon-button" aria-label="Settings B" href="#/">
+                                <md-icon md-svg-icon="dImages/ionicIcons/arrow-left-a.svg"></md-icon>
+                            </md-button>
+                            <h2>
+                                <span>{{chapterInfo.title}}</span>
+                            </h2>
+                            <span flex></span>
+                            <md-button class="md-icon-button" aria-label="Favorite">
+                                <md-icon md-svg-icon="dImages/ionicIcons/clock.svg" style="color: greenyellow;"></md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="More">
+                                <md-icon md-svg-icon="dImages/ionicIcons/more.svg"></md-icon>
+                            </md-button>
+                        </div>
+                    </md-toolbar> --> <!-- <div  ng-if="chapterInfo.instructor.uid === userAuth.uid" layout="row" style=" background-color: rgba(0,0,0,.14);">
+                    
+                        <md-button class="md-body-1" href="#/edit-content-research/{{targetMat.$id}}"> Edit </md-button>
+                        <md-button class="md-warn md-raised demo-dialog-open-button" ng-click="showAlert($event)">Delete </md-button>
+                    </div> --> <br> <md-content layout="column" layout-align="center center" style="background-color:white; width: 100%; max-width:942px; margin:0 auto; padding:20px"> <!-- <h3 class="md-display-1">{{targetMat.title}}</h3>
+                        <br><br> --> <md-content ng-cloak flex class="content" style="width:100%; background:white"></md-content> <br><br> </md-content> <br> <!--
+                    <md-content layout="column" layout-align="center center" style="background-color:white; width: 100%; max-width:942px; margin:0 auto; padding:20px;">
+                        <div layout="column" style="width:100%;">
+                            <md-list>
+                                <md-subheader class="md-no-sticky" style="background-color: inherit"> Comments {{cmts.length}} </md-subheader>
+                                <md-list-item class="md-2-line" ng-repeat="cmt in cmts track by $index">
+                                    <div class="md-list-item-text">
+                                        <h3>{{ cmt.name }}</h3>
+                                        <p>
+                                            {{cmt.body}}
+                                        </p>
+                                    </div>
+                                    <div style="padding:5px; padding-top:15px;">
+                                        <div ng-show="checkAutho(cmt)" class="md-caption" ng-click=" removeComment(cmt)">Remove</div>
+                                        <div class="md-caption">Edit(Not Yet)</div>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                            <comment-form ng-show="userAuth" on-target="{{targetMat.$id}}"></comment-form>
+                        </div>
+                    </md-content>
+                  --> </div> </div> </div> </div> <div class="profile-container" style="border-top: 2px solid black"> <div class="main-container"> <footer-stat></footer-stat> </div> </div> </div>

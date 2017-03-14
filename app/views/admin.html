@@ -1,0 +1,49 @@
+<div layout="column" style="overflow: inherit; position:relative; background-color: white;" flex >
+    <div class="profile-container" style="border-bottom: 2px solid black;">
+        <profile-header></profile-header>
+    </div>
+    <div class='menu-box' layout="column" style="margin-top: 8px; height:100%; color:black;">
+        <div> <span class="md-title"><strong> Admin </strong></span>
+            <!--<span>add</span> / <span>edit</span> -->
+        </div>
+        <section layout layout-margin layout-xs="column" flex style="width:100%;">
+            <md-list flex>
+                <md-subheader class="md-no-sticky">Softwares ({{softwares.length}})</md-subheader>
+                <md-list-item ng-repeat="sw in softwares" class="noright">
+                    <span class="code-title">[{{sw.name}}]</span>
+                    <md-icon md-svg-src="dImages/ionicIcons/link.svg" aria-label="Send Email" class="md-secondary md-hue-3" ng-click="openWeb(sw.link)" ></md-icon>
+                </md-list-item>
+
+                <md-subheader class="md-no-sticky">Data ({{data.length}})</md-subheader>
+                <md-list-item ng-repeat="dItem in data" class="noright">
+                    <span class="code-title">[{{dItem.name}}]</span>
+                    <md-icon md-svg-src="dImages/ionicIcons/link.svg"  aria-label="Send Email" class="md-secondary md-hue-3" ng-click="openWeb(dItem.link)"></md-icon>
+                </md-list-item>
+                <md-subheader class="md-no-sticky">People ({{people.length}})</md-subheader>
+                <md-list-item ng-repeat="person in People" class="noright">
+                    <span class="code-title">[{{person.name}}]</span>
+                    <md-icon md-svg-src="dImages/ionicIcons/link.svg"  aria-label="Send Email" class="md-secondary md-hue-3" ng-click="openWeb(person.link)"></md-icon>
+                </md-list-item>
+
+                <md-subheader class="md-no-sticky">Education ({{edus.length}})</md-subheader>
+                <md-list-item ng-repeat="edu in edus" class="noright">
+                    <span class="code-title">[{{edu.name}}]</span>
+                    <md-icon md-svg-src="dImages/ionicIcons/link.svg"  aria-label="Send Email" class="md-secondary md-hue-3" ng-click="openWeb(edu.link)"></md-icon>
+                </md-list-item>
+            </md-list>
+        </section>
+        <section layout layout-margin layout-xs="column" flex style="width:100%;">
+            <div class="md-title">Timeline</div>
+        </section>
+
+        <section layout layout-margin layout-xs="column" flex style="width:100%;">
+            <div class="md-title">Publication</div>
+        </section>
+
+        <div class="profile-container" style="border-top: 2px solid black;">
+            <div class="main-container">
+                <footer-stat></footer-stat>
+            </div>
+        </div>
+    </div>
+</div>

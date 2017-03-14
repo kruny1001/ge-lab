@@ -1,0 +1,13 @@
+<style>.noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Chrome/Safari/Opera */
+        -khtml-user-select: none; /* Konqueror */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+    }
+    .article-row:hover{
+        background: rgba(105, 105, 105, 0.34);
+        color:white;
+    }</style> <section layout="column" style="border:1px solid darkgrey" class="box-shadow noselect" flex> <div style="background-color:white; height:36px; border-bottom: 1px solid #9E9E9E" layout="row" layout-align="center center" layout-padding> <span style="color: #727272; font-weight: bold"> <md-icon md-svg-src="dImages/ionicIcons/{{icon}}" style="margin-right:2px; color:#000000"></md-icon> <a style="color:black" href="#/articleList/{{type}}">{{nameList}}</a></span> <span flex></span> <a ng-show-auth class="md-caption" style="color:grey; font-weight: bold" href="#/new-content/{{type}}"> New Content </a> </div> <div style="background:white" layout-padding class="md-caption"> <div class="article-row" layout ng-repeat="post in articles" style="padding:2px"> <a style="color:black" href="#/detail/{{type}}/{{post.$id}}"> <span style="color: gray; margin-right:8px">{{$index+1}} </span> <span flex="5"></span> <span flex>{{post.title}} </span> </a> </div> </div> </section>

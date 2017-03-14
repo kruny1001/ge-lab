@@ -1,0 +1,18 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "firebase": "bcloud",
+  "hosting": {
+    "public": "dist",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
