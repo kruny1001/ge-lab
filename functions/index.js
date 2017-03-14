@@ -19,15 +19,15 @@ const crypto = require('crypto');
 
 
 exports.githubWebhook = functions.https.onRequest((req, res) => {
-  const cipher = 'sha1';
-  const signature = req.headers['x-hub-signature'];
-
-  // TODO: Configure the `github.secret` Google Cloud environment variables.
-  const hmac = crypto.createHmac(cipher, functions.config().github.secret)
-      // The JSON body is automatically parsed by Cloud Functions so we re-stringify it.
-      .update(JSON.stringify(req.body, null, 0))
-      .digest('hex');
-  const expectedSignature = `${cipher}=${hmac}`;
+  // const cipher = 'sha1';
+  // const signature = req.headers['x-hub-signature'];
+  //
+  // // TODO: Configure the `github.secret` Google Cloud environment variables.
+  // const hmac = crypto.createHmac(cipher, functions.config().github.secret)
+  //     // The JSON body is automatically parsed by Cloud Functions so we re-stringify it.
+  //     .update(JSON.stringify(req.body, null, 0))
+  //     .digest('hex');
+  // const expectedSignature = `${cipher}=${hmac}`;
 
   // Fetch the service account key JSON file contents
   var serviceAccount = require("key.json");
@@ -42,7 +42,7 @@ exports.githubWebhook = functions.https.onRequest((req, res) => {
    var db = admin.database();
    var ref = db.ref("commits");
    ref.push({type: "commit"})
-   deployApp()
+   //deployApp()
 
   // // Check that the body of the request has been signed with the GitHub Secret.
   // if (signature === expectedSignature) {
